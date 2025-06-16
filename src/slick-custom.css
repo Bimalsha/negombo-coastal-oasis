@@ -1,0 +1,17 @@
+/* src/components/slick-custom.css */
+.slick-arrow {
+    display: none !important;
+}
+
+.slider-container {
+    position: relative;
+}
+
+.custom-arrow {
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.custom-arrow:hover {
+    opacity: 1;
+}

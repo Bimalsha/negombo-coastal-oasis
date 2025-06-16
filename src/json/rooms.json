@@ -1,0 +1,138 @@
+{
+  "rooms": [
+    {
+      "type": "Double Deluxe Room",
+      "description": "Away from the hustle and bustle of Negombo, cabana styled deluxe rooms comforts you with the coziest amenities in a peaceful environment.",
+      "room": "4",
+      "typeroom": "Garden View",
+      "displayp": "60 USD Bed and Breakfast",
+      "img": "/doubledeluxe.jpg",
+      "gallery": [
+        "/doubledeluxe.jpg",
+        "/double1.jpg",
+        "/double2.jpg",
+        "/double3.jpg",
+        "/double4.jpg"
+      ],
+      "features": [
+        "Private Terrace/Patio",
+        "In Room Safe",
+        "Large King Size Bed",
+        "Hot Water",
+        "Air Conditioning",
+        "Tea/Coffee Makers"
+      ],
+      "amenities": [
+        "Bathroom Amenities",
+        "Rain Shower",
+        "Pop Up Mosquito Net (on request)",
+        "Blanket sheets (on request)",
+        "Hair Dryer (on request)"
+      ],
+      "otherFacilities": {
+        "Outdoor": "Outdoor furniture, Pool side Lounge, Terrace, Garden, Large outdoor pool, Separate kids pool",
+        "Pets": "Pets are not allowed.",
+        "Activities": "Boat rides, Bicycle rental, tuk tuk city tour (all on additional charge)",
+        "Food & Drink": "MSR Restaurant 7.00 am – 9.00pm",
+        "Internet": "Free! Wi-Fi is available in common areas and is free of charge.",
+        "Parking": "Accessible parking, Secure parking",
+        "Front Desk Services": "Concierge, Baggage storage, Tour desk",
+        "Cleaning Service": "Daily housekeeping, Laundry Service (Additional charge)"
+      },
+      "rates": {
+        "directRate": "60 USD on BB Basis",
+        "note": "The rates are subjected for seasonal changes. Please contact us directly for further information."
+      }
+    },
+    {
+      "type": "Family Room",
+      "description": "Offering chic comforts, the Spacious Family rooms with a private patio is a perfect pick for family getaways. ",
+      "room": "3",
+      "typeroom": "Garden View",
+      "displayp": "100 USD Bed and Breakfast",
+      "img": "/family1.jpg",
+      "gallery": [
+        "/family1.jpg",
+        "/family2.jpg",
+        "/family3.jpg",
+        "/family4.jpg",
+        "/family5.jpg"
+
+      ],
+      "features": [
+        "Private Terrace/Patio",
+        "In Room Safe",
+        "04 twin Beds",
+        "Hot Water",
+        "Air Conditioning",
+        "Tea/Coffee Makers"
+      ],
+      "amenities": [
+        "Bathroom Amenities",
+        "Rain Shower",
+        "Pop Up Mosquito Net (on request)",
+        "Blanket sheets (on request)",
+        "Hair Dryer (on request)",
+        "Baby Cot (on request)"
+      ],
+      "otherFacilities": {
+        "Outdoor": "Outdoor furniture, Pool side Lounge, Terrace, Garden, Large outdoor pool, Separate kids pool",
+        "Pets": "Pets are not allowed.",
+        "Activities": "Boat rides, Bicycle rental, Tuk Tuk City Tour (all on additional charge)",
+        "Food & Drink": "MSR Restaurant 7.00 am – 9.00pm",
+        "Internet": "Free! Wi-Fi is available in common areas and is free of charge.",
+        "Parking": "Accessible parking, Secure parking",
+        "Front Desk Services": "Concierge, Baggage storage, Tour desk",
+        "Cleaning Service": "Daily housekeeping, Laundry Service (Additional charge)"
+      },
+      "rates": {
+        "directRate": "100 USD on Bed and Breakfast Basis",
+        "note": "The rates are subjected for seasonal changes. Please contact us directly for further information."
+      }
+    },
+    {
+      "type": "Triple Room",
+      "description": "For friends and Family, with walking distance to the beach, it's the best option for weekend getaways or for transits before/after your flight.",
+      "room": "2",
+      "typeroom": "Garden View",
+      "displayp": "77 USD Bed and Breakfast",
+      "img": "/triple1.jpg",
+      "gallery": [
+        "/triple1.jpg",
+        "/triple2.jpg",
+        "/triple3.jpg",
+        "/triple4.jpg",
+        "/triple5.jpg"
+      ],
+      "features": [
+        "Private Terrace/Patio",
+        "In Room Safe",
+        "03 Twin Beds",
+        "Hot Water",
+        "Air Conditioning",
+        "Tea/Coffee Makers"
+      ],
+      "amenities": [
+        "Bathroom Amenities",
+        "Rain Shower",
+        "Pop Up Mosquito Net (on request)",
+        "Blanket sheets (on request)",
+        "Hair Dryer (on request)"
+      ],
+      "otherFacilities": {
+        "Outdoor": "Outdoor furniture, Pool side Lounge, Terrace, Garden, Large outdoor pool, Separate kids pool",
+        "Pets": "Pets are not allowed.",
+        "Activities": "Boat rides Additional charge, Bicycle rental, tuk tuk city tour (all on additional charge)",
+        "Food & Drink": "MSR Restaurant 7.00 am – 9.00pm",
+        "Internet": "Free! Wi-Fi is available in common areas and is free of charge.",
+        "Parking": "Accessible parking, Secure parking",
+        "Front Desk Services": "Concierge, Baggage storage, Tour desk",
+        "Cleaning Service": "Daily housekeeping, Laundry Service (Additional charge)"
+      },
+      "rates": {
+        "directRate": "77 USD on Bed and Breakfast Basis",
+        "note": "The rates are subjected for seasonal changes. Please contact us directly for further information."
+      }
+    }
+  ]
+}
