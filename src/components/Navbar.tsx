@@ -25,7 +25,6 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="text-2xl font-bold text-[#0c1f4f] flex">
-              {/*<img src="/logo.png" alt="" className={'h-10'}/>*/}
               Morning Star Resorts
             </Link>
           </div>
@@ -53,7 +52,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-emerald-700 focus:outline-none focus:text-emerald-700"
+              className="text-gray-700 hover:text-[#009ee2] focus:outline-none focus:text-[#009ee2]"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>

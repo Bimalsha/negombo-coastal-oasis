@@ -8,7 +8,7 @@ import Footer from '../components/Footer';
 import Greating from "@/components/Greating.tsx";
 import Accommodation from "@/pages/Accommodation.tsx";
 import Accommodationhero from "@/components/Accommodationhero.tsx";
-import HeroBanner from "@/components/HeroBanner.tsx";
+
 import ExperienceSection from "@/components/ExperienceSection.tsx";
 import ReviewSlider from "@/components/ReviewSlider.tsx";
 import AwardsSection from "@/components/AwardsSection.tsx";
@@ -21,11 +21,9 @@ const Index = () => {
         <Greating/>
       <Features />
         <Accommodationhero/>
-<ExperienceSection/>
+      <ExperienceSection/>
       <Highlights />
-        {/*<HeroBanner/>*/}
 <ReviewSlider/>
-        {/*<AwardsSection/>*/}
       <Footer />
     </div>
   );

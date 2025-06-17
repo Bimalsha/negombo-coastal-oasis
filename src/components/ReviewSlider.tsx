@@ -98,7 +98,7 @@ const ReviewSlider = () => {
     return (
         <motion.section
             className="py-16 px-4 md:px-12 bg-cover bg-center bg-no-repeat relative"
-            style={{ backgroundImage: "url('/5936.jpg')" }}
+            style={{ backgroundImage: "url('/rback.webp')" }}
             variants={sectionVariants}
             initial="hidden"
             whileInView="visible"

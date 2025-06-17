@@ -6,7 +6,7 @@ const Highlights = () => {
     {
       title: 'Shopping Escapades',
       description: 'Explore local markets and boutique shops in vibrant Negombo',
-      image: '/mask.jpg'
+      image: '/mask.webp'
     },
     {
       title: 'The Negombo Beach',
@@ -16,7 +16,7 @@ const Highlights = () => {
     {
       title: 'Muthurajawela Wetlands',
       description: 'Discover unique flora and fauna in this pristine ecosystem',
-      image: '/muthurajawela.jpg'
+      image: '/muthurajawela.webp'
     }
   ];
 

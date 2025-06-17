@@ -1,16 +1,15 @@
-import React from 'react'
+import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import {GiVikingLonghouse} from "react-icons/gi";
+import { GiVikingLonghouse } from 'react-icons/gi';
 import roomsData from '../json/rooms.json';
-import {GrLinkNext} from "react-icons/gr";
-import {FaChevronLeft, FaChevronRight} from "react-icons/fa";
+import { GrLinkNext } from 'react-icons/gr';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import '../slick-custom.css';
 
 function Accommodationhero() {
-    // Custom arrow components with improved visibility
     const NextArrow = (props) => {
         const { onClick } = props;
         return (
@@ -102,7 +101,6 @@ function Accommodationhero() {
 
     const totalRooms = roomsData.rooms.reduce((sum, room) => sum + parseInt(room.room), 0);
 
-    // Animation variants
     const headerVariants = {
         hidden: { opacity: 0, y: -30 },
         visible: {
@@ -161,7 +159,7 @@ function Accommodationhero() {
 
     return (
         <motion.section
-            className="pt-16 pb-8 bg-[#b4e4f8]"
+            className="pt-16 pb-8 bg-gradient-to-b from-[#b4e4f8] via-[#009ee2] to-[#0c1f4f]"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -194,9 +192,8 @@ function Accommodationhero() {
                         variants={itemVariants}
                     >
                         <p className={'max-w-6xl'}>
-                            Unwind our thoughtfully designed comfortable bed rooms with spacious bathrooms and a private
-                            patio where one can relax and soak in the view of the garden which has been landscaped with
-                            variety of hues of flora and fauna.
+                            Unwind in our thoughtfully designed comfortable bedrooms with spacious bathrooms and a private
+                            patio where you can relax and soak in the view of the garden, landscaped with a variety of flora and fauna.
                         </p>
                     </motion.div>
 
@@ -259,14 +256,14 @@ function Accommodationhero() {
                                             <div className={'flex flex-col items-center justify-between gap-2 pt-4'}>
                                                 <div className={'flex gap-2'}>
                                                     <motion.a href={'/accommodation'}
-                                                        className={'bg-[#c6bba9] px-5 py-2 text-white rounded-sm hover:bg-[#5f6b8c] flex items-center gap-4'}
-                                                        whileHover={{ scale: 1.05 }}
-                                                        whileTap={{ scale: 0.95 }}
+                                                              className={'bg-[#c6bba9] px-5 py-2 text-white rounded-sm hover:bg-[#5f6b8c] flex items-center gap-4'}
+                                                              whileHover={{ scale: 1.05 }}
+                                                              whileTap={{ scale: 0.95 }}
                                                     >
                                                         See More <GrLinkNext/>
                                                     </motion.a>
                                                     <motion.a
-                                                        href={'https://www.booking.com/hotel/lk/morning-star-guest-house.en-gb.html?aid=356980&label=gog235jc-1FCAsohQFCGG1vcm5pbmctc3Rhci1ndWVzdC1ob3VzZUgJWANohQGIAQGYAQm4ARfIAQzYAQHoAQH4AQKIAgGoAgO4AvDLtMIGwAIB0gIkNjJkYmRhZGUtMGUzMS00OTlmLThmZTEtNjI0MGFmYWQxODJh2AIF4AIB&sid=820a8f567d277fb24fce1a614fae7f4f&all_sr_blocks=168488106_90948926_0_42_0&checkin=2025-06-15&checkout=2025-06-16&dest_id=-2230513&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=1&highlighted_blocks=168488106_90948926_0_42_0&hpos=1&matching_block_id=168488106_90948926_0_42_0&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=168488106_90948926_0_42_0__5500&srepoch=1749886795&srpvid=58bf35717db103af&type=total&ucfs=1&#tab-main'}
+                                                        href={'https://www.booking.com/hotel/lk/morning-star-guest-house.en-gb.html'}
                                                         className={'bg-[#009ee2] px-5 py-2 text-white rounded-sm hover:bg-[#b4e4f8] hover:text-[#0c1f4f] flex items-center gap-4'}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
@@ -287,7 +284,7 @@ function Accommodationhero() {
                 </motion.div>
             </div>
         </motion.section>
-    )
+    );
 }
 
-export default Accommodationhero
+export default Accommodationhero;
