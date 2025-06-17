@@ -4,6 +4,37 @@
 
 **URL**: https://lovable.dev/projects/b05b453f-c66d-4691-a18b-76956cf88e0b
 
+## Contact Form Integration
+
+This project includes a fully integrated contact form using EmailJS for sending emails directly from the frontend. The contact form is located on the `/contact` page and includes:
+
+- Real-time form validation
+- Loading states and success/error messages
+- Beautiful animations with Framer Motion
+- Automatic email sending to the resort owner
+- Professional email templates
+
+### EmailJS Setup
+
+To enable the contact form functionality:
+
+1. **Quick Setup**: Follow the guide in `EMAILJS_SETUP.md` for complete instructions
+2. **Template**: Use the pre-built email template from `EMAIL_TEMPLATE.md`
+3. **Environment Variables**: Configure your `.env` file with EmailJS credentials
+
+```env
+VITE_EMAILJS_SERVICE_ID=your_service_id_here
+VITE_EMAILJS_TEMPLATE_ID=your_template_id_here
+VITE_EMAILJS_PUBLIC_KEY=your_public_key_here
+```
+
+The contact form automatically handles:
+- Form submission with validation
+- Email delivery to `morningstarresorts92@gmail.com`
+- Customer contact information formatting
+- Timestamp in Sri Lanka timezone
+- Error handling and user feedback
+
 ## How can I edit this code?
 
 There are several ways of editing your application.

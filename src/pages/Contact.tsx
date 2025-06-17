@@ -1,24 +1,72 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { MapPin, Phone } from 'lucide-react';
+import { MapPin, Phone, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 import { MdOutlineMailOutline } from "react-icons/md";
 import { LuFacebook } from "react-icons/lu";
 import { SiTripadvisor } from "react-icons/si";
 import { motion } from 'framer-motion';
+import { initEmailJS, sendContactEmail, validateEmailJSConfig, type ContactFormData } from '../services/emailService';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
     phone: '',
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitMessage, setSubmitMessage] = useState('');
+
+  // Initialize EmailJS on component mount
+  useEffect(() => {
+    initEmailJS();
+    
+    // Validate configuration on mount
+    if (!validateEmailJSConfig()) {
+      console.warn('EmailJS is not properly configured. Please check your environment variables.');
+    }
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
+    
+    // Validate form
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      setSubmitStatus('error');
+      setSubmitMessage('Please fill in all required fields.');
+      return;
+    }
+
+    setIsLoading(true);
+    setSubmitStatus('idle');
+    setSubmitMessage('');
+
+    try {
+      const success = await sendContactEmail(formData);
+      
+      if (success) {
+        setSubmitStatus('success');
+        setSubmitMessage('Thank you for your message! We\'ll get back to you soon.');
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          message: ''
+        });
+      } else {
+        throw new Error('Failed to send email');
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setSubmitStatus('error');
+      setSubmitMessage('Sorry, there was an error sending your message. Please try again or contact us directly.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleWhatsApp = () => {
@@ -336,13 +384,30 @@ const Contact = () => {
                     variants={itemVariants}
                 >
                 Send us a Message
-                </motion.h2>
-
-                <motion.form
+                </motion.h2>                <motion.form
                     onSubmit={handleSubmit}
                     className="space-y-6"
                     variants={containerVariants}
                 >
+                  {/* Status Message */}
+                  {submitStatus !== 'idle' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className={`p-4 rounded-lg flex items-center gap-2 ${
+                        submitStatus === 'success' 
+                          ? 'bg-green-50 text-green-800 border border-green-200' 
+                          : 'bg-red-50 text-red-800 border border-red-200'
+                      }`}
+                    >
+                      {submitStatus === 'success' ? (
+                        <CheckCircle className="w-5 h-5" />
+                      ) : (
+                        <AlertCircle className="w-5 h-5" />
+                      )}
+                      <span>{submitMessage}</span>
+                    </motion.div>
+                  )}
                   <motion.div variants={formItemVariants}>
                     <motion.label
                         htmlFor="name"
@@ -444,11 +509,10 @@ const Contact = () => {
                         transition={{ type: "spring", stiffness: 100, damping: 12, delay: 0.5 }}
                         whileFocus={{ scale: 1.01, borderColor: "#10b981" }}
                     ></motion.textarea>
-                  </motion.div>
-
-                  <motion.button
+                  </motion.div>                  <motion.button
                       type="submit"
-                      className="w-full bg-[#009ee2] hover:bg-[#5f6b8c] text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+                      disabled={isLoading}
+                      className="w-full bg-[#009ee2] hover:bg-[#5f6b8c] disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
                       variants={formItemVariants}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -459,10 +523,11 @@ const Contact = () => {
                         damping: 12,
                         delay: 0.6
                       }}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
+                      whileHover={{ scale: isLoading ? 1 : 1.05 }}
+                      whileTap={{ scale: isLoading ? 1 : 0.95 }}
                   >
-                    Send Message
+                    {isLoading && <Loader2 className="w-4 h-4 animate-spin" />}
+                    {isLoading ? 'Sending...' : 'Send Message'}
                   </motion.button>
                 </motion.form>
               </motion.div>
