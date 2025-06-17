@@ -12,3 +12,15 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Sitemap location
+Sitemap: https://morningstarresorts.lk/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Disallow admin areas (if any in future)
+Disallow: /admin/
+Disallow: /api/
+Disallow: /.env
+Disallow: /package.json

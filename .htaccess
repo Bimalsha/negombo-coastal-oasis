@@ -1,0 +1,284 @@
+# Morning Star Resort Website - Apache Configuration
+# Created for production deployment
+
+# ==============================================================================
+# SECURITY HEADERS
+# ==============================================================================
+
+<IfModule mod_headers.c>
+    # Content Security Policy - Allow EmailJS and other necessary resources
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com; img-src 'self' data: https: blob:; connect-src 'self' https://api.emailjs.com https://fonts.googleapis.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;"
+    
+    # Security Headers
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-Frame-Options DENY
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), accelerometer=(), gyroscope=()"
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    
+    # Remove Server Header
+    Header unset Server
+    Header always unset X-Powered-By
+    
+    # CORS Headers for EmailJS
+    Header always set Access-Control-Allow-Origin "*"
+    Header always set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+    Header always set Access-Control-Allow-Headers "Content-Type, Authorization"
+</IfModule>
+
+# ==============================================================================
+# REDIRECTS AND URL REWRITING
+# ==============================================================================
+
+RewriteEngine On
+
+# Force HTTPS (uncomment for production with SSL)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Remove trailing slashes
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ /$1 [R=301,L]
+
+# Handle React Router (Single Page Application)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
+
+# SEO Friendly URLs
+RewriteRule ^accommodations/?$ /accommodation [R=301,L]
+RewriteRule ^rooms/?$ /accommodation [R=301,L]
+RewriteRule ^dining-restaurant/?$ /dining [R=301,L]
+RewriteRule ^photos/?$ /gallery [R=301,L]
+RewriteRule ^images/?$ /gallery [R=301,L]
+RewriteRule ^contact-us/?$ /contact [R=301,L]
+RewriteRule ^about-us/?$ /about [R=301,L]
+
+# ==============================================================================
+# COMPRESSION
+# ==============================================================================
+
+<IfModule mod_deflate.c>
+    # Compress HTML, CSS, JavaScript, Text, XML and fonts
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/x-font
+    AddOutputFilterByType DEFLATE application/x-font-opentype
+    AddOutputFilterByType DEFLATE application/x-font-otf
+    AddOutputFilterByType DEFLATE application/x-font-truetype
+    AddOutputFilterByType DEFLATE application/x-font-ttf
+    AddOutputFilterByType DEFLATE application/x-font-woff
+    AddOutputFilterByType DEFLATE application/x-font-woff2
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE font/opentype
+    AddOutputFilterByType DEFLATE font/otf
+    AddOutputFilterByType DEFLATE font/ttf
+    AddOutputFilterByType DEFLATE font/woff
+    AddOutputFilterByType DEFLATE font/woff2
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE image/x-icon
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/xml
+</IfModule>
+
+# ==============================================================================
+# BROWSER CACHING
+# ==============================================================================
+
+<IfModule mod_expires.c>
+    ExpiresActive on
+    
+    # Images
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # Fonts
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/otf "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+    
+    # CSS and JavaScript
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    
+    # HTML
+    ExpiresByType text/html "access plus 1 hour"
+    
+    # Data
+    ExpiresByType application/json "access plus 1 day"
+    ExpiresByType application/xml "access plus 1 day"
+    ExpiresByType text/xml "access plus 1 day"
+    
+    # Manifest files
+    ExpiresByType application/manifest+json "access plus 1 week"
+    ExpiresByType text/cache-manifest "access plus 1 week"
+    
+    # Default
+    ExpiresDefault "access plus 1 month"
+</IfModule>
+
+# Cache-Control Headers
+<IfModule mod_headers.c>
+    # Images and Fonts - 1 year
+    <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico|woff|woff2|ttf|otf)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    
+    # CSS and JavaScript - 1 month
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "public, max-age=2592000"
+    </FilesMatch>
+    
+    # HTML - 1 hour
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "public, max-age=3600"
+    </FilesMatch>
+</IfModule>
+
+# ==============================================================================
+# MIME TYPES
+# ==============================================================================
+
+<IfModule mod_mime.c>
+    # Web fonts
+    AddType application/font-woff woff
+    AddType application/font-woff2 woff2
+    AddType application/vnd.ms-fontobject eot
+    AddType font/ttf ttf
+    AddType font/otf otf
+    
+    # Web app manifest
+    AddType application/manifest+json webmanifest
+    
+    # Modern image formats
+    AddType image/webp webp
+    AddType image/avif avif
+    
+    # JavaScript modules
+    AddType text/javascript mjs
+</IfModule>
+
+# ==============================================================================
+# ERROR PAGES
+# ==============================================================================
+
+ErrorDocument 404 /index.html
+ErrorDocument 403 /index.html
+ErrorDocument 500 /index.html
+
+# ==============================================================================
+# ENVIRONMENT SPECIFIC CONFIGURATIONS
+# ==============================================================================
+
+# Hide sensitive files
+<FilesMatch "^(\.env|\.env\..*|package\.json|package-lock\.json|tsconfig\.json|vite\.config\.ts|\.git.*|node_modules)">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Prevent access to source files
+<FilesMatch "\.(ts|tsx|jsx|scss|sass|less|vue)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# ==============================================================================
+# PERFORMANCE OPTIMIZATIONS
+# ==============================================================================
+
+# Disable ETags
+FileETag None
+
+# Enable Keep-Alive
+<IfModule mod_headers.c>
+    Header always set Connection keep-alive
+</IfModule>
+
+# ==============================================================================
+# HOTLINK PROTECTION
+# ==============================================================================
+
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^https?://(www\.)?morningstarresorts\.lk [NC]
+RewriteCond %{HTTP_REFERER} !^https?://(www\.)?localhost [NC]
+RewriteCond %{HTTP_REFERER} !^https?://.*\.vercel\.app [NC]
+RewriteCond %{HTTP_REFERER} !^https?://.*\.netlify\.app [NC]
+RewriteRule \.(jpg|jpeg|png|gif|webp|svg)$ - [F,L]
+
+# ==============================================================================
+# ADDITIONAL SECURITY
+# ==============================================================================
+
+# Disable server signature
+ServerSignature Off
+
+# Prevent access to .htaccess itself
+<Files ".htaccess">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Prevent access to backup files
+<FilesMatch "(\.(bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist)|~)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# ==============================================================================
+# CONTACT FORM SPECIFIC
+# ==============================================================================
+
+# Allow CORS for EmailJS API calls
+<IfModule mod_headers.c>
+    # Handle preflight requests for EmailJS
+    RewriteCond %{REQUEST_METHOD} OPTIONS
+    RewriteRule ^(.*)$ $1 [R=200,L]
+    
+    # Set CORS headers for API requests
+    SetEnvIf Origin "https://api.emailjs.com" AccessControlAllowOrigin=$0
+    Header always set Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
+    Header always set Access-Control-Allow-Methods "GET, POST, OPTIONS, DELETE, PUT"
+    Header always set Access-Control-Allow-Headers "DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization"
+</IfModule>
+
+# ==============================================================================
+# MONITORING AND LOGGING
+# ==============================================================================
+
+# Custom log format (optional)
+# LogFormat "%h %l %u %t \"%r\" %>s %O \"%{Referer}i\" \"%{User-Agent}i\"" combined
+
+# ==============================================================================
+# FINAL NOTES
+# ==============================================================================
+
+# This .htaccess file is optimized for:
+# 1. Morning Star Resort website
+# 2. React Single Page Application
+# 3. EmailJS integration
+# 4. SEO optimization
+# 5. Security best practices
+# 6. Performance optimization
+#
+# Make sure to:
+# - Test all redirects after deployment
+# - Enable SSL and uncomment HTTPS redirect
+# - Update domain names for production
+# - Monitor server logs for any issues
+# - Verify EmailJS functionality works in production
