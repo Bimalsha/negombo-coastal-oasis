@@ -16,7 +16,7 @@ const Accommodation = () => {
     // Feature icons mapping
     const featureIcons = {
         "Private Terrace/Patio": <FaUmbrellaBeach className="w-4 h-4 text-teal-500 mr-1"/>,
-        "Hot Water": <Droplets className="w-4 h-4 text-[#009ee2] mr-1"/>,
+        "Hot Water": <Droplets className="w-4 h-4 text-teal-500 mr-1"/>,
         "03 Twin Beds": <IoBedOutline className="w-4 h-4 text-teal-500 mr-1"/>,
         "04 twin Beds": <IoBedOutline className="w-4 h-4 text-teal-500 mr-1"/>,
         "Large King Size Bed": <IoBedOutline className="w-4 h-4 text-teal-500 mr-1"/>,
