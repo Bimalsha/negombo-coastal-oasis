@@ -207,7 +207,7 @@ const Contact = () => {
                         transition={{ duration: 0.5 }}
                         whileHover={{ rotate: [0, -10, 10, 0], transition: { duration: 0.5 } }}
                     >
-                      <MapPin className="w-6 h-6 text-[#009ee2] mt-1" />
+                      <MapPin className="w-6 h-6 text-teal-500 mt-1" />
                     </motion.div>
                     <div>
                       <motion.h3
@@ -244,7 +244,7 @@ const Contact = () => {
                         transition={{ duration: 0.5 }}
                         whileHover={{ rotate: [0, -10, 10, 0], transition: { duration: 0.5 } }}
                     >
-                      <Phone className="w-6 h-6 text-[#009ee2] mt-1" />
+                      <Phone className="w-6 h-6 text-teal-500 mt-1" />
                     </motion.div>
                     <div>
                       <motion.h3
@@ -291,7 +291,7 @@ const Contact = () => {
                         transition={{ duration: 0.5 }}
                         whileHover={{ rotate: [0, -10, 10, 0], transition: { duration: 0.5 } }}
                     >
-                      <MdOutlineMailOutline className="w-6 h-6 text-[#009ee2] mt-1" />
+                      <MdOutlineMailOutline className="w-6 h-6 text-teal-500 mt-1" />
                     </motion.div>
                     <div>
                       <motion.h3
