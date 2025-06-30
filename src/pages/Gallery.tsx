@@ -27,11 +27,6 @@ const Gallery = () => {
       src: '/room2.webp',
       category: 'rooms',
       title: 'Deluxe Room'
-    },{
-      id: 3,
-      src: '/room3.webp',
-      category: 'rooms',
-      title: 'Deluxe Room'
     },
     {
       id: 4,
@@ -39,12 +34,7 @@ const Gallery = () => {
       category: 'rooms',
       title: 'Deluxe Room'
     },
-    {
-      id: 5,
-      src: '/room5.webp',
-      category: 'rooms',
-      title: 'Deluxe Room'
-    },
+
     {
       id: 6,
       src: '/room6.webp',
@@ -249,19 +239,19 @@ const Gallery = () => {
 
         {/* Hero Section */}
         <motion.div
-            className="pt-16 bg-[#e3f2f8]"
+            className="pt-8 bg-teal-100"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeIn}
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
             <motion.div
                 className="text-center"
                 variants={heroVariants}
             >
               <motion.h1
-                  className="text-4xl md:text-5xl font-bold text-[#0c1f4f] mb-4"
+                  className="text-4xl md:text-5xl font-bold font-title mb-4"
                   variants={heroVariants}
               >
                 Gallery
@@ -295,8 +285,8 @@ const Gallery = () => {
                       onClick={() => setSelectedCategory(category.id)}
                       className={`px-6 py-2 rounded-full font-semibold transition-colors duration-200 ${
                           selectedCategory === category.id
-                              ? 'bg-[#009ee2] text-white'
-                              : 'bg-gray-200 text-gray-700 hover:bg-[#e3f2f8] hover:text-[#009ee2]'
+                              ? 'bg-teal-400 '
+                              : 'bg-gray-200 text-gray-700 hover:bg-teal-400 hover:text-black'
                       }`}
                       variants={filterButtonVariants}
                       whileHover={{ scale: 1.05 }}

@@ -132,52 +132,61 @@ const Dining = () => {
 
         {/* Hero Section */}
         <motion.div
-            className="pt-16"
+            className="relative h-[300px] w-full overflow-hidden"
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            animate="visible"
             variants={fadeIn}
         >
+          {/* Background Image */}
           <div
-              className="relative h-96 bg-cover bg-center"
+              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
               style={{
-                backgroundImage: `url('/dinning.webp')`
+                backgroundImage: "url('/dinning.jpg')"
               }}
           >
-            <motion.div
-                className="absolute inset-0 bg-black/50"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 0.5 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.2 }}
-            ></motion.div>
-            <motion.div
-                className="relative z-10 flex items-center justify-center h-full text-center text-white px-4"
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-            >
-              <div className="max-w-4xl mx-auto">
-                <motion.h1
-                    className="text-4xl md:text-5xl font-bold mb-4"
-                    variants={heroTextVariants}
-                >
-                  Dining at Morning Star Restaurant
-                </motion.h1>
-                <motion.p
-                    className="text-lg md:text-xl"
-                    variants={heroTextVariants}
-                >
-                  Experience culinary excellence with Asian fusion cuisine and fresh seafood
-                </motion.p>
-              </div>
-            </motion.div>
+            <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50"></div>
           </div>
+
+          {/* Glass Effect Layer */}
+          <motion.div
+              className="absolute inset-0 backdrop-blur-[5%] bg-white/10 z-10"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+          />
+
+          {/* Content */}
+          <motion.div
+              className="relative z-20 flex items-center justify-center h-full text-center text-white px-4"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+          >
+            <div className="max-w-4xl mx-auto pt-16">
+              <motion.h1
+                  className="text-4xl md:text-5xl font-bold mb-4 font-title text-teal-400"
+                  variants={heroTextVariants}
+              >
+
+                Dining at Morning Star Restaurant
+              </motion.h1>
+              <motion.p
+                  className="text-lg md:text-xl mb-8"
+                  variants={heroTextVariants}
+              >
+                Experience culinary excellence with Asian fusion cuisine and fresh seafood
+              </motion.p>
+
+
+            </div>
+          </motion.div>
+
+
         </motion.div>
 
         {/* Dining Content */}
         <motion.section
+            id="menu"
             className="py-16"
             variants={containerVariants}
             initial="hidden"
@@ -203,16 +212,16 @@ const Dining = () => {
                   variants={containerVariants}
               >
                 <motion.div
-                    className="bg-[#fff7ea] p-8 rounded-xl"
+                    className="bg-teal-50 p-8 rounded-xl"
                     variants={cardVariants}
                     whileHover={{
                       y: -10,
-                      boxShadow: "0 10px 25px -5px rgba(204, 153, 51, 0.4)"
+                      boxShadow: "0 10px 25px -5px rgba(0, 170, 170, 0.4)"
                     }}
                     transition={{ duration: 0.3 }}
                 >
                   <motion.h3
-                      className="text-2xl font-bold text-[#cc9933] mb-4"
+                      className="text-2xl font-bold text-teal-400 mb-4"
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       viewport={{ once: true }}
@@ -268,6 +277,7 @@ const Dining = () => {
 
         {/* Photo Gallery */}
         <motion.section
+            id="gallery"
             className="pb-16"
             variants={fadeIn}
             initial="hidden"
@@ -276,7 +286,7 @@ const Dining = () => {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.h2
-                className="text-3xl font-bold text-center text-[#0c1f4f] mb-10"
+                className="text-4xl font-bold text-center text-[#0c1f4f] mb-10 font-title"
                 initial={{ opacity: 0, y: -20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -326,7 +336,6 @@ const Dining = () => {
             </motion.div>
           </div>
         </motion.section>
-
 
         <Footer />
       </div>

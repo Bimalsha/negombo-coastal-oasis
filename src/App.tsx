@@ -10,7 +10,6 @@ import About from "./pages/About";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
-import PageLoader from "./components/PageLoader";
 import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
@@ -22,7 +21,6 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <ScrollToTop />
-          <PageLoader />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/accommodation" element={<Accommodation />} />

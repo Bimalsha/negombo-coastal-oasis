@@ -8,23 +8,23 @@ import { motion } from 'framer-motion';
 const Features = () => {
   const features = [
     {
-      back: 'bg-orange-200',
-      icon: <Home className="w-10 h-10 text-orange-500" />,
+
+      icon: <Home className="w-10 h-10 text-teal-300" />,
       title: 'Garden Facing Rooms',
     },
     {
-      back: 'bg-blue-200',
-      icon: <PiUsersThree className="w-10 h-10 text-blue-500" />,
+
+      icon: <PiUsersThree className="w-10 h-10 text-teal-300" />,
       title: 'Early Check-In Based On Availability',
     },
     {
-      back: 'bg-green-200',
-      icon: <IoBedOutline className="w-10 h-10 text-green-500" />,
+
+      icon: <IoBedOutline className="w-10 h-10 text-teal-300" />,
       title: 'Flexible Cancellations',
     },
     {
-      back: 'bg-red-200',
-      icon: <MdOutlineAirportShuttle className="w-10 h-10 text-red-500" />,
+
+      icon: <MdOutlineAirportShuttle className="w-10 h-10 text-teal-300" />,
       title: 'Airport Shuttle service and other Tour arrangements',
     },
   ];
@@ -72,10 +72,10 @@ const Features = () => {
               viewport={{ once: true, amount: 0.3 }}
               variants={headerVariants}
           >
-            <p className="text-sm uppercase text-[#009ee2] font-semibold tracking-wider mb-2">
+            <p className="text-sm uppercase text-teal-400 font-medium tracking-wider mb-2">
               Your Perfect Beachfront Escape
             </p>
-            <h2 className="text-4xl font-semibold text-gray-900 mb-12">
+            <h2 className="text-4xl font-title mb-12">
               Enjoy Exclusive Benefits
             </h2>
           </motion.div>
@@ -96,13 +96,13 @@ const Features = () => {
                     transition={{ duration: 0.3 }}
                 >
                   <motion.div
-                      className={`${feature.back} p-3 rounded-full`}
+                      className={` p-3 rounded-full`}
                       whileHover={{ rotate: 10 }}
                       transition={{ duration: 0.2 }}
                   >
                     {feature.icon}
                   </motion.div>
-                  <p className="text-gray-800 font-medium max-w-[200px] text-sm leading-relaxed">
+                  <p className="text-gray-400 max-w-[200px] text-sm leading-relaxed">
                     {feature.title}
                   </p>
                 </motion.div>

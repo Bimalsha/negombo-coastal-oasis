@@ -12,6 +12,9 @@ import Accommodationhero from "@/components/Accommodationhero.tsx";
 import ExperienceSection from "@/components/ExperienceSection.tsx";
 import ReviewSlider from "@/components/ReviewSlider.tsx";
 import AwardsSection from "@/components/AwardsSection.tsx";
+import Banner from "@/components/Banner.tsx";
+import Why from "@/components/Why.tsx";
+
 
 const Index = () => {
   return (
@@ -23,7 +26,9 @@ const Index = () => {
         <Accommodationhero/>
       <ExperienceSection/>
       <Highlights />
+        <Banner/>
 <ReviewSlider/>
+        <Why/>
       <Footer />
     </div>
   );

@@ -33,14 +33,14 @@ function Greating() {
                     viewport={{ once: true, amount: 0.3 }}
                 >
                     <motion.p
-                        className="text-[#009ee2] uppercase font-semibold"
+                        className="text-teal-400 uppercase font-medium"
                         variants={itemVariants}
                     >
                         Welcome to Morning Star Resort Negombo!
                     </motion.p>
 
                     <motion.h2
-                        className="text-3xl md:text-4xl font-bold text-[#0c1f4f] mb-4 mt-2"
+                        className="text-3xl md:text-4xl font-title mb-4 mt-2 "
                         variants={itemVariants}
                     >
                         Your Perfect Family Getaway
@@ -48,7 +48,7 @@ function Greating() {
 
                     <motion.p
                         variants={itemVariants}
-                        className="max-w-3xl mx-auto"
+                        className="max-w-4xl mx-auto text-gray-400"
                     >
                         Escape to the flora and fauna of a family-friendly small resort well equipped with eco-friendly
                         surroundings, bringing you the best of Negombo to your doorstep. Just minutes from Bandaranayaka

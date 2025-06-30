@@ -47,7 +47,7 @@ const ExperienceSection = () => {
             transition={{ duration: 0.8 }}
         >
             <motion.div
-                className="flex justify-between flex-col md:flex-row items-center w-full max-w-7xl px-4 sm:px-6 lg:px-8"
+                className="flex justify-between flex-col md:flex-row items-center w-full lg:w-[90%] px-4 sm:px-2 lg:px-8"
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
@@ -59,7 +59,7 @@ const ExperienceSection = () => {
                     variants={containerVariants}
                 >
                     <motion.p
-                        className="text-sm text-[#009ee2] font-semibold uppercase tracking-widest mb-4"
+                        className="text-sm text-teal-400 font-medium uppercase tracking-widest mb-4"
                         variants={textVariants}
                     >
                         Discover Heritance Experiences
@@ -72,7 +72,7 @@ const ExperienceSection = () => {
                         >
                             <motion.span
                                 variants={textVariants}
-                                className="block"
+                                className="block "
                             >
                                 Relaxation
                             </motion.span>
@@ -92,7 +92,7 @@ const ExperienceSection = () => {
                     </div>
 
                     <motion.div
-                        className="h-1 bg-[#009ee2] mt-6 w-20"
+                        className="h-1 bg-teal-400 mt-6 w-20"
                         variants={lineVariants}
                     />
                 </motion.div>

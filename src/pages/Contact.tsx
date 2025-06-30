@@ -138,7 +138,7 @@ const Contact = () => {
 
         {/* Hero Section */}
         <motion.div
-            className="pt-16 bg-[#e3f2f8]"
+            className="pt-16 bg-teal-100"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -150,7 +150,7 @@ const Contact = () => {
                 variants={containerVariants}
             >
               <motion.h1
-                  className="text-4xl md:text-5xl font-bold text-[#0c1f4f] mb-4"
+                  className="text-4xl md:text-5xl font-bold text-[#0c1f4f] mb-4  font-title"
                   variants={heroTextVariants}
               >
                 Contact Us
@@ -319,7 +319,7 @@ const Contact = () => {
                 {/* WhatsApp Button */}
                 <motion.button
                     onClick={handleWhatsApp}
-                    className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 mb-6"
+                    className="w-full bg-teal-500 hover:bg-teal-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 mb-6"
                     variants={itemVariants}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -512,7 +512,7 @@ const Contact = () => {
                   </motion.div>                  <motion.button
                       type="submit"
                       disabled={isLoading}
-                      className="w-full bg-[#009ee2] hover:bg-[#5f6b8c] disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
+                      className="w-full bg-teal-500 hover:bg-teal-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
                       variants={formItemVariants}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}

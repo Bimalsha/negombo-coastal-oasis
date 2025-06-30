@@ -14,10 +14,10 @@ function Accommodationhero() {
         const { onClick } = props;
         return (
             <div
-                className="custom-arrow next-arrow"
+                className="custom-arrow next-arrow bg-teal-400"
                 style={{
                     position: "absolute",
-                    background: "rgba(12, 31, 79, 0.7)",
+
                     borderRadius: "50%",
                     width: "40px",
                     height: "40px",
@@ -41,10 +41,10 @@ function Accommodationhero() {
         const { onClick } = props;
         return (
             <div
-                className="custom-arrow prev-arrow"
+                className="custom-arrow prev-arrow bg-teal-400"
                 style={{
                     position: "absolute",
-                    background: "rgba(12, 31, 79, 0.7)",
+
                     borderRadius: "50%",
                     width: "40px",
                     height: "40px",
@@ -159,13 +159,13 @@ function Accommodationhero() {
 
     return (
         <motion.section
-            className="pt-16 pb-8 bg-gradient-to-b from-[#b4e4f8] via-[#009ee2] to-[#0c1f4f]"
+            className="pt-16 pb-8 bg-teal-50"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
         >
-            <div className="mx-auto max-w-7xl">
+            <div className="mx-auto ">
                 <motion.div
                     className="text-center mb-12"
                     variants={contentVariants}
@@ -174,14 +174,14 @@ function Accommodationhero() {
                     viewport={{ once: true, amount: 0.3 }}
                 >
                     <motion.p
-                        className="text-[#009ee2] uppercase font-semibold"
+                        className="text-teal-400 uppercase font-medium"
                         variants={headerVariants}
                     >
                         Accommodation!
                     </motion.p>
 
                     <motion.h2
-                        className="text-3xl md:text-4xl font-semibold text-[#0c1f4f] mb-4 mt-2"
+                        className="text-3xl md:text-4xl font-title mb-4 mt-2"
                         variants={headerVariants}
                     >
                         Comfort Meets Elegance
@@ -191,7 +191,7 @@ function Accommodationhero() {
                         className='flex justify-center mb-4'
                         variants={itemVariants}
                     >
-                        <p className={'max-w-6xl'}>
+                        <p className={'max-w-5xl text-gray-400'}>
                             Unwind in our thoughtfully designed comfortable bedrooms with spacious bathrooms and a private
                             patio where you can relax and soak in the view of the garden, landscaped with a variety of flora and fauna.
                         </p>
@@ -236,7 +236,7 @@ function Accommodationhero() {
                                     }}
                                 >
                                     <motion.div
-                                        className="rounded-2xl overflow-hidden transition-shadow duration-300 bg-[#0c1f4f]"
+                                        className="rounded-2xl overflow-hidden transition-shadow duration-300"
                                         whileHover={{ y: -10 }}
                                         transition={{ duration: 0.3 }}
                                     >
@@ -244,19 +244,19 @@ function Accommodationhero() {
                                             <motion.img
                                                 src={card.image}
                                                 alt={card.title}
-                                                className="w-full lg:h-64 h-48 object-cover"
+                                                className="w-full lg:h-96 h-48 object-cover"
                                                 whileHover={{ scale: 1.15 }}
                                                 transition={{ duration: 0.9, ease: 'easeInOut' }}
                                             />
                                         </div>
                                         <div className="p-5">
-                                            <h3 className="text-lg font-semibold text-white mb-2">{card.title}</h3>
-                                            <p className="text-[#b4e4f8] text-sm">{card.description}</p>
-                                            <p className={'mt-2 text-lg text-[#c6bba9] font-medium'}>{card.room} Rooms | {card.view}</p>
+                                            <h3 className="text-3xl font-medium font-title mb-2">{card.title}</h3>
+                                            <p className=" text-sm text-gray-600">{card.description}</p>
+                                            <p className={'mt-2 text-lg text-teal-500 font-medium'}>{card.room} Rooms | {card.view}</p>
                                             <div className={'flex flex-col items-center justify-between gap-2 pt-4'}>
                                                 <div className={'flex gap-2'}>
                                                     <motion.a href={'/accommodation'}
-                                                              className={'bg-[#c6bba9] px-5 py-2 text-white rounded-sm hover:bg-[#5f6b8c] flex items-center gap-4'}
+                                                              className={'bg-gray-400 px-5 py-2 text-white rounded-sm hover:bg-gray-600 flex items-center gap-4'}
                                                               whileHover={{ scale: 1.05 }}
                                                               whileTap={{ scale: 0.95 }}
                                                     >
@@ -264,7 +264,7 @@ function Accommodationhero() {
                                                     </motion.a>
                                                     <motion.a
                                                         href={'https://www.booking.com/hotel/lk/morning-star-guest-house.en-gb.html'}
-                                                        className={'bg-[#009ee2] px-5 py-2 text-white rounded-sm hover:bg-[#b4e4f8] hover:text-[#0c1f4f] flex items-center gap-4'}
+                                                        className={'bg-teal-400 px-5 py-2 text-white rounded-sm hover:bg-teal-600  flex items-center gap-4'}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
                                                         whileHover={{ scale: 1.05 }}

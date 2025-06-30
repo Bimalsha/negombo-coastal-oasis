@@ -1,15 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 /* Slick carousel core styles */
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
 
+/* Slick carousel core styles */
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
 
+/* Load Italiana from Google Fonts as a fallback */
+@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
+
+/* Local font loading */
+@font-face {
+  font-family: 'Italiana';
+  src: url('/fonts/Italiana-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Ensure the font is applied globally */
+html, body {
+  font-family: 'Italiana', serif;
+}
+@font-face {
+  font-family: 'Italiana';
+  src: url('/fonts/Italiana-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  font-family: 'Italiana', serif;
 }
+
+/* Rest of your CSS remains unchanged */
 
 .logo {
   height: 6em;
@@ -46,4 +74,3 @@
 .read-the-docs {
   color: #888;
 }
-

@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
-
+// import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
 export default {
 	darkMode: ["class"],
 	content: [
@@ -11,6 +12,11 @@ export default {
 	],
 	prefix: "",
 	theme: {
+		fontFamily: {
+			sans: ['Mulish', 'serif'],
+			title: ['Cormorant SC', 'serif'],
+			script: ['Dancing Script', 'cursive'],
+		},
 		container: {
 			center: true,
 			padding: '2rem',
@@ -71,30 +77,19 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out'
-			},
-			fontFamily: {
-				sans: ['Quicksand', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-			},
+			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [tailwindcssAnimate],
 } satisfies Config;
