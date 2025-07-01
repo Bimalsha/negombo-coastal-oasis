@@ -272,7 +272,7 @@ const Contact = () => {
                           viewport={{ once: true }}
                           transition={{ delay: 0.3, duration: 0.5 }}
                       >
-                        +94 031 02274371
+                        +94 31 2274371
                       </motion.p>
                     </div>
                   </motion.div>

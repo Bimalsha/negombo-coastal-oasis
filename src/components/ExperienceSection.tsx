@@ -62,7 +62,7 @@ const ExperienceSection = () => {
                         className="text-sm text-teal-400 font-medium uppercase tracking-widest mb-4"
                         variants={textVariants}
                     >
-                        Discover Heritance Experiences
+                        Discover Morning Star Experiences
                     </motion.p>
 
                     <div className="overflow-hidden">
