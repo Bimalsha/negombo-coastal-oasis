@@ -203,11 +203,10 @@ const Accommodation = () => {
                                             alt={room.type}
                                             className="w-full h-48 md:h-full object-cover"
                                             whileHover={{scale: 1.1}}
-                                            transition={{duration: 0.5}}
                                             initial={{scale: 1.05, opacity: 0.8}}
                                             whileInView={{scale: 1, opacity: 1}}
                                             viewport={{once: true}}
-                                            transition={{duration: 0.7}}
+                                            transition={{duration: 0.5}}
                                         />
                                         <motion.div
                                             className="absolute top-3 right-3 bg-teal-500 text-white px-3 py-1 rounded-full text-sm font-medium"
